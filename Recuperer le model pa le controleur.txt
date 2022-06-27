@@ -1,0 +1,2 @@
+$data_module = new mdl_module;
+$data_module -> get_data();
