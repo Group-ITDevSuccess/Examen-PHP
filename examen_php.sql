@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1:3306
--- Généré le : mar. 28 juin 2022 à 14:11
--- Version du serveur : 5.7.36
--- Version de PHP : 7.4.26
+-- Hôte : 127.0.0.1
+-- Généré le : mar. 28 juin 2022 à 08:41
+-- Version du serveur : 10.4.24-MariaDB
+-- Version de PHP : 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Base de données : `examen_php`
 --
+CREATE DATABASE IF NOT EXISTS `examen_php` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `examen_php`;
 
 -- --------------------------------------------------------
 
@@ -27,11 +29,13 @@ SET time_zone = "+00:00";
 -- Structure de la table `auths`
 --
 
-DROP TABLE IF EXISTS `auths`;
-CREATE TABLE IF NOT EXISTS `auths` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+CREATE TABLE `auths` (
+  `id` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `type` varchar(255) NOT NULL,
+  `login` varchar(255) NOT NULL,
+  `password` varchar(25) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -39,13 +43,12 @@ CREATE TABLE IF NOT EXISTS `auths` (
 -- Structure de la table `contacts`
 --
 
-DROP TABLE IF EXISTS `contacts`;
-CREATE TABLE IF NOT EXISTS `contacts` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `contacts` (
+  `id` int(11) NOT NULL,
   `nom` varchar(255) NOT NULL,
   `email` varchar(100) NOT NULL,
   `objet` text NOT NULL,
-  PRIMARY KEY (`id`)
+  `message` text NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -54,18 +57,16 @@ CREATE TABLE IF NOT EXISTS `contacts` (
 -- Structure de la table `etudiants`
 --
 
-DROP TABLE IF EXISTS `etudiants`;
-CREATE TABLE IF NOT EXISTS `etudiants` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `etudiants` (
+  `id` int(11) NOT NULL,
   `nom` varchar(255) NOT NULL,
-  `prenom` int(255) NOT NULL,
+  `prenom` varchar(255) NOT NULL,
   `date_anniversaire` date NOT NULL,
   `cin` int(11) NOT NULL,
   `email` varchar(200) NOT NULL,
   `telephone` int(11) NOT NULL,
   `comptefb` varchar(100) NOT NULL,
-  `photo` varchar(100) NOT NULL,
-  PRIMARY KEY (`id`)
+  `photo` varchar(100) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -74,13 +75,11 @@ CREATE TABLE IF NOT EXISTS `etudiants` (
 -- Structure de la table `modules`
 --
 
-DROP TABLE IF EXISTS `modules`;
-CREATE TABLE IF NOT EXISTS `modules` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nom` int(11) NOT NULL,
+CREATE TABLE `modules` (
+  `id` int(11) NOT NULL,
+  `nom` varchar(255) NOT NULL,
   `code` int(11) NOT NULL,
-  `heure` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
+  `heure` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -89,13 +88,79 @@ CREATE TABLE IF NOT EXISTS `modules` (
 -- Structure de la table `profs`
 --
 
-DROP TABLE IF EXISTS `profs`;
-CREATE TABLE IF NOT EXISTS `profs` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `profs` (
+  `id` int(11) NOT NULL,
   `nom` varchar(255) NOT NULL,
-  `email` varchar(200) NOT NULL,
-  PRIMARY KEY (`id`)
+  `email` varchar(200) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Index pour les tables déchargées
+--
+
+--
+-- Index pour la table `auths`
+--
+ALTER TABLE `auths`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `contacts`
+--
+ALTER TABLE `contacts`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `etudiants`
+--
+ALTER TABLE `etudiants`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `modules`
+--
+ALTER TABLE `modules`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `profs`
+--
+ALTER TABLE `profs`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT pour les tables déchargées
+--
+
+--
+-- AUTO_INCREMENT pour la table `auths`
+--
+ALTER TABLE `auths`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `contacts`
+--
+ALTER TABLE `contacts`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `etudiants`
+--
+ALTER TABLE `etudiants`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `modules`
+--
+ALTER TABLE `modules`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `profs`
+--
+ALTER TABLE `profs`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
