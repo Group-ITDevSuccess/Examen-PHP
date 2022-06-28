@@ -1,5 +1,5 @@
 <?php 
-    class mdl_pages
+    class Ctrl_pages
     {
         public function index()
         {

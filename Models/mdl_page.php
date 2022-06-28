@@ -1,5 +1,5 @@
 <?php 
-    class mdl_page 
+    class Mdl_page 
     {
         public function get_data()
         {

@@ -1,5 +1,5 @@
 <?php 
-    class mdl_profs
+    class Ctrl_profs
     {
         public function index()
         {

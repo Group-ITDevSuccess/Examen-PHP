@@ -1,5 +1,5 @@
 <?php 
-    class mdl_contact
+    class Mdl_contact
     {
         public function get_data()
         {

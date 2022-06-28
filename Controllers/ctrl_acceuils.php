@@ -1,5 +1,5 @@
 <?php 
-    class mdl_acceuils
+    class Ctrl_acceuils
     {
         public function index()
         {
@@ -28,10 +28,3 @@
 
 
 
-class ...:
-
-    function index
-    function add 
-    function save 
-    function update 
-    function delete

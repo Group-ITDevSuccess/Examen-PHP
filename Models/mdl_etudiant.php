@@ -1,9 +1,10 @@
 <?php 
-    class mdl_etudiant 
+    include('../Utils/db.php');
+    class Mdl_etudiant 
     {
         public function get_data()
         {
-            # code...
+            
         }
         public function save_data()
         {

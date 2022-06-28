@@ -1,9 +1,16 @@
 <?php 
-    class mdl_modules
-    {
-        public function index()
+
+    include('Models/mdl_module.php');
+    class Ctrl_modules{
+
+        public static function index()
         {
-            # code...
+           $m = new Mdl_module();
+           $data_result = $m::get_data();
+        //    echo '<pre>';
+        //    print_r($data_result);
+           include('Views/modules/list_modules.php');
+        //    return $data_result;
         }
         public function add()
         {
@@ -22,4 +29,5 @@
             # code...
         }
     }
+    // Ctrl_modules::index();    
 ?>

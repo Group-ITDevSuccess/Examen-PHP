@@ -1,9 +1,12 @@
 <?php 
-    class mdl_module
+
+    include('Utils/db.php');
+    class Mdl_module
     {
-        public function get_data()
+        public static function get_data()
         {
-            # code...
+           $mo = db_connect()->query('SELECT * FROM modules')->fetchAll();
+           return $mo;
         }
         public function save_data()
         {

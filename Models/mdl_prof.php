@@ -1,5 +1,5 @@
 <?php 
-    class mdl_prof 
+    class Mdl_prof 
     {
         public function get_data()
         {

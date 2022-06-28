@@ -1,9 +1,10 @@
 <?php 
-    class mdl_etudiants
+
+    class Ctrl_etudiants
     {
         public function index()
         {
-            # code...
+            
         }
         public function add()
         {

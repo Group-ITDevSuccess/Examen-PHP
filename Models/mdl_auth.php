@@ -1,5 +1,5 @@
 <?php 
-    class mdl_auth
+    class Mdl_auth
     {
         public function get_data()
         {

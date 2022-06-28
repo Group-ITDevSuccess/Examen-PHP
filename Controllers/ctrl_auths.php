@@ -1,5 +1,5 @@
 <?php 
-    class mdl_auts
+    class Ctrl_auths
     {
         public function index()
         {

@@ -1,5 +1,5 @@
 <?php 
-    class mdl_acceuil 
+    class Mdl_acceuil 
     {
         public function get_data()
         {

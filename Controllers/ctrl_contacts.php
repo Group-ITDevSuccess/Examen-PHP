@@ -1,5 +1,5 @@
 <?php 
-    class mdl_contacts
+    class Ctrl_contacts
     {
         public function index()
         {
