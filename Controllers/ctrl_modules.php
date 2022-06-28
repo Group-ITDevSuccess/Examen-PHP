@@ -5,7 +5,7 @@
 
         public static function index()
         {
-           $m = new Mdl_module();
+        //    $m = new Mdl_module(); Pas besoin de creer un objet avec New car on a notre classe qui son deja publique
            $data_result = $m::get_data();
         //    echo '<pre>';
         //    print_r($data_result);
