@@ -5,8 +5,9 @@
     {
         public static function get_data()
         {
-           $mo = db_connect()->query('SELECT * FROM modules')->fetchAll();
-           return $mo;
+           $pdo = db_connect();
+           $q = 'SELECT * FROM modules';
+           return $pdo->query($q)->fetchAll();
         }
         public function save_data()
         {
